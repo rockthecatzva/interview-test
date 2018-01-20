@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './API';
 import Test from './CHANGEME.js';
-
+import axios from 'axios';
 
 class App extends Component {
-    render() { 
+    componentDidMount() {
+        console.log("App mounted")
+
+        axios.get('http://localhost:8001/buildingTypes')
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    render() {
+        console.log("Rendering App")
         return (
             <div className="App">
                 <div className="App-header">
