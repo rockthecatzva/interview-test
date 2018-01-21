@@ -1,0 +1,14 @@
+.filterContainer{
+    width: 300px;
+    border: solid 1px grey;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px;
+}
+
+.inputLabel{
+    margin: 0px;
+    font-size: 0.7em;
+    color: grey;
+}

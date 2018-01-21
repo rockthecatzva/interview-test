@@ -5,52 +5,9 @@ import API from './API';
 import Test from './CHANGEME.js';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            "locationData": [],
-            "bedRange": [],
-            "bathRange": [],
-            "buildingTypes": [],
-            "buildingTypeFilter": "",
-            "maxBeds": 0,
-            "maxBaths": 0
-        }
-    }
+    
 
-    componentDidMount() {
-        console.log("App mounted")
-
-        API.getBuildingTypes()
-            .then(response => {
-                this.setState({ "buildingTypes": response.data });
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
-        API.getLocations()
-            .then(response => {
-                let maxBaths = 0,
-                    maxBeds = 0;
-                    
-                response.data.forEach(location => {
-                    if (location.baths > maxBaths) { maxBaths = location.baths };
-                    if (location.beds > maxBeds) { maxBeds = location.beds };
-                });
-
-                console.log(maxBaths, maxBeds)
-                this.setState({ "locationData": response.data,
-                                maxBeds,
-                                maxBaths
-                             });
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
-
-    }
+    
 
     render() {
         console.log("Rendering App")

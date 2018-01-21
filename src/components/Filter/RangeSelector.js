@@ -1,24 +1,45 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './RangeSelector.css';
+import { RangeSlider } from 'reactrangeslider';
+
 
 class RangeSelector extends Component {
-    render() {    
+    render() {
+        const {label, rangeBounds, rangeSelected, min, max, onChange, value} = this.props;
+
+        //inline styles for slider only
+        const handleStyle = {
+            width: '15px',
+            height: '15px',
+            top: '10px'
+        }
+
         return (
             <div className="rangeContainer">
+                <RangeSlider
+                    value={rangeSelected}
+                    min={min}
+                    max={max}
+                    step={1}
+                    onChange={onChange}
+                    handleStyle={handleStyle}
+                />
+                <div><div className="minVal" >{rangeSelected.start}</div><div className="maxVal" >{rangeSelected.end}</div></div>
             </div>
         );
     }
 }
 
 RangeSelector.defaultProps = {
-    rangeBounds: [],
-    rangeSelected: []
+    rangeSelected: {}
 }
 
 RangeSelector.propTypes = {
-    rangeBounds: PropTypes.array,
-    rangeSelected: PropTypes.array
+    rangeSelected: PropTypes.object,
+    min: PropTypes.number,
+    max: PropTypes.number,
+    onChange: PropTypes.func
 }
 
 export default RangeSelector;

@@ -1,0 +1,15 @@
+.rangeContainer{
+    width: 300px;
+}
+
+.minVal{
+    width: 50%;
+    text-align: left;
+    float: left;
+}
+
+.maxVal{
+    width: 50%;
+    text-align: right;
+    float: left;
+}
