@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './RemineTable.css';
+import * as deepEqual from 'deep-equal';
+
 
 class RemineTable extends Component {
     shouldComponentUpdate(nextProps) {
-        console.log("--table - should update - ", nextProps.properties !== this.props.properties)
-        return (nextProps.properties !== this.props.properties);
+        //is deepEqual worth the overhead vs just re-rendering?
+        //deepEqual used for array comparison to determine if re-render is necessary
+        return (!deepEqual(nextProps.properties, this.props.properties))
     }
 
 

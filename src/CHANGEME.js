@@ -21,8 +21,7 @@ class Test extends Component {
     }
 
     componentDidMount() {
-        console.log("App mounted")
-
+        
         API.getBuildingTypes()
             .then(response => {
                 this.setState({ "buildingTypes": response.data });
@@ -72,11 +71,11 @@ class Test extends Component {
         return (
             <div className="testContainer">
                 <div className="filterContainer">
-                    <p className="inputLabel">NUMBER OF BEDS</p>
+                    <p className="inputLabel">NUMBER OF BEDS:</p>
                     <RangeSelector max={maxBeds} min={0} rangeSelected={bedRange} onChange={(e) => { this.onFilterChange(e, "bedRange") }} />
-                    <p className="inputLabel">NUMBER OF BATHS</p>
+                    <p className="inputLabel">NUMBER OF BATHS:</p>
                     <RangeSelector max={maxBaths} min={0} rangeSelected={bathRange} onChange={(e) => { this.onFilterChange(e, "bathRange") }} />
-                    <p className="inputLabel">BUILDING TYPE</p>
+                    <p className="inputLabel">BUILDING TYPE:</p>
                     <Dropdown options={[{ "name": "all", "id": 0 }, ...buildingTypes]} onChange={(e) => { this.onFilterChange(e, "buildingTypeFilter") }} />
                 </div>
 

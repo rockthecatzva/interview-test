@@ -12,7 +12,6 @@ class RangeSelector extends Component {
 
     render() {
         const { rangeSelected, min, max, onChange } = this.props;
-        console.log("Range selector rendering")
 
         //inline styles for slider only, otherwise use !important
         const handleStyle = {
