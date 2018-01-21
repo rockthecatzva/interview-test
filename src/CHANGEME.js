@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import RemineTable from './components/Table/RemineTable/RemineTable';
 import RangeSelector from './components/Filter/RangeSelector';
 import Dropdown from './components/Filter/Dropdown';

@@ -1,29 +1,30 @@
-import React, { Component, PropTypes } from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 export default class Dropdown extends Component {
-  render() {
-    const { options, onChange} = this.props
+  shouldComponentUpdate(nextProps) {
+    return (nextProps.options !== this.props.options);
+}
 
-    function onSelectItem(e){
-      console.log("changed dropdown", e.target.value, typeof(e.target.value));
-      onChange(parseInt(e.target.value, 10));
-    }
+
+  render() {
+    const { options, onChange } = this.props
+    console.log("Dropdown rendering")
 
     return (
       <div className="dropdown">
-        <select onChange={onSelectItem} >
-          {options.map((o,i)=>{
-            return(<option key={i} value={i}>{o.name}</option>)
-            })}
+        <select onChange={(e)=>{onChange(parseInt(e.target.value, 10));}} >
+          {options.map((o, i) => {
+            return (<option key={i} value={i}>{o.name}</option>)
+          })}
         </select>
-        </div>
-      )
-    }
+      </div>
+    )
   }
+}
 
-  
-  Dropdown.propTypes = {
-    options: PropTypes.array,
-    onChange: PropTypes.func,
-  }
+
+Dropdown.propTypes = {
+  options: PropTypes.array,
+  onChange: PropTypes.func,
+}

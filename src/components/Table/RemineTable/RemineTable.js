@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 import './RemineTable.css';
 
 class RemineTable extends Component {
-    render() {    
+    shouldComponentUpdate(nextProps) {
+        console.log("--table - should update - ", nextProps.properties !== this.props.properties)
+        return (nextProps.properties !== this.props.properties);
+    }
+
+
+    render() {
+        console.log("Table rendering")
+
         return (
             <div className="tableContainer">
                 <p>Table length: <strong>{this.props.properties.length}</strong></p>
@@ -17,14 +25,14 @@ class RemineTable extends Component {
                         </tr>
                     </thead>
                     <tbody className="remineTableBody">
-                    {this.props.properties.map(property => (
-                        <tr key={property.id}>
-                            <td>{property.address}</td>
-                            <td>{property.buildingType}</td>
-                            <td>{property.beds}</td>
-                            <td>{property.baths}</td>
-                        </tr>
-                    ))}
+                        {this.props.properties.map(property => (
+                            <tr key={property.id}>
+                                <td>{property.address}</td>
+                                <td>{property.buildingType}</td>
+                                <td>{property.beds}</td>
+                                <td>{property.baths}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>

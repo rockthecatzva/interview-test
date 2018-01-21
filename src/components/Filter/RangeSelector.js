@@ -5,10 +5,16 @@ import { RangeSlider } from 'reactrangeslider';
 
 
 class RangeSelector extends Component {
-    render() {
-        const {label, rangeBounds, rangeSelected, min, max, onChange, value} = this.props;
+    shouldComponentUpdate(nextProps) {
+        return (nextProps.min !== this.props.min || nextProps.max !== this.props.max || nextProps.rangeSelected !== this.props.rangeSelected);
+    }
 
-        //inline styles for slider only
+
+    render() {
+        const { rangeSelected, min, max, onChange } = this.props;
+        console.log("Range selector rendering")
+
+        //inline styles for slider only, otherwise use !important
         const handleStyle = {
             width: '15px',
             height: '15px',
