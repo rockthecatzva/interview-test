@@ -5,7 +5,6 @@ import Test from './CHANGEME.js';
 
 class App extends Component {
     render() {
-        console.log("Rendering App")
         return (
             <div className="App">
                 <div className="App-header">

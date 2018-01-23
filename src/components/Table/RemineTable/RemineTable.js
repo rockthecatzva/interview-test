@@ -7,14 +7,11 @@ import * as deepEqual from 'deep-equal';
 class RemineTable extends Component {
     shouldComponentUpdate(nextProps) {
         //is deepEqual worth the overhead vs just re-rendering?
-        //deepEqual used for array comparison to determine if re-render is necessary
         return (!deepEqual(nextProps.properties, this.props.properties))
     }
 
 
     render() {
-        console.log("Table rendering")
-
         return (
             <div className="tableContainer">
                 <p>Table length: <strong>{this.props.properties.length}</strong></p>

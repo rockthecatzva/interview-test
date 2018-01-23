@@ -4,14 +4,13 @@ import * as deepEqual from 'deep-equal';
 
 export default class Dropdown extends Component {
   shouldComponentUpdate(nextProps) {
-    //is deepEqual worth the overhead vs just re-rendering?
     return (!deepEqual(nextProps.options, this.props.options));
 }
 
 
   render() {
-    const { options, onChange } = this.props
-
+    const { options, onChange } = this.props;
+    
     return (
       <div className="dropdown">
         <select onChange={(e)=>{onChange(parseInt(e.target.value, 10));}} >
@@ -20,12 +19,12 @@ export default class Dropdown extends Component {
           })}
         </select>
       </div>
-    )
+    );
   }
 }
 
 
 Dropdown.propTypes = {
   options: PropTypes.array,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 }

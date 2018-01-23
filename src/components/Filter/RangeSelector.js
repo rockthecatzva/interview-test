@@ -12,14 +12,7 @@ class RangeSelector extends Component {
 
     render() {
         const { rangeSelected, min, max, onChange } = this.props;
-
-        //inline styles for slider only, otherwise use !important
-        const handleStyle = {
-            width: '15px',
-            height: '15px',
-            top: '10px'
-        }
-
+        
         return (
             <div className="rangeContainer">
                 <RangeSlider
@@ -28,7 +21,7 @@ class RangeSelector extends Component {
                     max={max}
                     step={1}
                     onChange={onChange}
-                    handleStyle={handleStyle}
+                    handleClassName={"slideHandle"}
                 />
                 <div><div className="minVal" >{rangeSelected.start}</div><div className="maxVal" >{rangeSelected.end}</div></div>
             </div>
