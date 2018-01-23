@@ -68,6 +68,7 @@ class Test extends Component {
             .filter((l) => { return (!buildingTypeFilter || l.buildingType.id === buildingTypeFilter) })//filter buildingType
             .map((l) => { return { ...l, "buildingType": l.buildingType.name } })//change buildingType from an object to string for rendering
         
+        const buildingOptions = [{ "name": "all", "id": 0 }, ...buildingTypes];
 
         return (
             <div className="testContainer">
@@ -90,7 +91,7 @@ class Test extends Component {
                             <p className="inputLabel">NUMBER OF BATHS:</p>
                             <RangeSelector max={maxBaths} min={0} rangeSelected={bathRange} onChange={(e) => { this.onFilterChange(e, "bathRange") }} />
                             <p className="inputLabel">BUILDING TYPE:</p>
-                            <Dropdown options={[{ "name": "all", "id": 0 }, ...buildingTypes]} onChange={(e) => { this.onFilterChange(e, "buildingTypeFilter") }} />
+                            <Dropdown options={buildingOptions} onChange={(e) => { this.onFilterChange(e, "buildingTypeFilter") }} />
                         </div>
 
                         {filteredData.length>0 && 
